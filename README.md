@@ -22,7 +22,7 @@ Framework/tool | Description
 * Download and install both [git](https://git-scm.com/downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
 * Run the following commands in a shell of your choosing.
 ```sh
-git clone git@github.com:lwalter/flask-angular-starter.git
+git clone https://github.com/lwalter/flask-angular-starter.git
 cd vagrant
 vagrant up
 vagrant ssh
