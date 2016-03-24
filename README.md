@@ -40,13 +40,16 @@ env/bin/python3.4 run.py
 * Bower packages can be installed by running `node_modules/bower/bin/bower install <package name>`.
 * After modifying any database entities, run `env/bin/python3.4 manage.py db migrate`. This will add a new migration entry to `migrations/versions`.
 
-## TODO
-* Move from Flask-assets to Gulp for frontend dependency management.
-* Write backend and frontend tests.
-* Modify NPM, Bower and build scripts to accommodate both development and production contexts.
-* ReactJS option for frontend library.
-* Move from SQLite -> PostgreSQL.
+## Contributing
+---------------
+* Issue tracking
+    * For any proposed features or bugs, please open an issue to allow for tracking of the item.
+
+* Submitting changes
+    * Fork the repository and switch to a new branch with `git checkout -b <branch-name>`
+    * Make all necessary changes and submit a new pull request. Please provide detailed information to help facilitate understanding of the changes. Reference the issue that the pull request applies to.
+    * After a code review, the pull request will either be accepted or rejected.
 
 ## License
-
+-----------
 [MIT](LICENSE) Luke Walter
