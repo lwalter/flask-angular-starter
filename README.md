@@ -1,5 +1,5 @@
 # Flask-Angular-Starter
-Start your next hackathon or side project with the initial cruft out of the way. This project gets you an AngularJS with a reactive Material Design SPA frontend and a configured Python Flask REST API backend. No more will you have to suffer the monotony of implementing yet another user authentication system for your new projects, as repo sets you up with both registration and login using JSON Web Tokens. Forget about the annoying and verbose web service code and expand the applications capabilities easily and succinctly with Python and Flask.
+Start your next hackathon or side project with the initial cruft out of the way. This project gets you an AngularJS with a reactive Material Design SPA frontend and a configured Python Flask REST API backend. No more will you have to suffer the monotony of implementing yet another user authentication system for your new projects, as this repo sets you up with both registration and login using JSON Web Tokens. Forget about the annoying and verbose web service code and expand the applications capabilities easily and succinctly with Python and Flask.
 
 ## Application stack and tools
 Framework/tool | Description
@@ -32,7 +32,7 @@ env/bin/python3.4 run.py
 * Open a browser and navigate to localhost:5000
 
 ## Things to know
-* Guest port 5000 and host port 5000 are forwarded to access the application residing on the Vagrant VM.
+* Host port 5000 is forwarded to guest port 5000 to provide access the application residing on the Vagrant VM.
 * The repository on the host will be shared to `/app` of the guest environment.
 * A Python virtualenv will be created in the `/app` directory called `env`.
 * Python packages can be installed by running `/app/env/bin/pip install <package name>`.
