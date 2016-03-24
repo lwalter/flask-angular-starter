@@ -1,0 +1,8 @@
+env
+app/static/libs
+*.idea
+*pyc
+node_modules
+*.vagrant
+*app.db
+*logs
