@@ -41,7 +41,6 @@ env/bin/python3.4 run.py
 * After modifying any database entities, run `env/bin/python3.4 manage.py db migrate`. This will add a new migration entry to `migrations/versions`.
 
 ## Contributing
----------------
 * Issue tracking
     * For any proposed features or bugs, please open an issue to allow for tracking of the item.
 
@@ -51,5 +50,4 @@ env/bin/python3.4 run.py
     * After a code review, the pull request will either be accepted or rejected.
 
 ## License
------------
 [MIT](LICENSE) Luke Walter
