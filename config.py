@@ -12,7 +12,7 @@ class Config(object):
     SECRET_KEY = os.environ['SECRET_KEY']
 
     JWT_AUTH_USERNAME_KEY = 'email'
-    JWT_EXPIRATION_DELTA = timedelta(seconds=10)
+    JWT_EXPIRATION_DELTA = timedelta(seconds=86400)
     JWT_NOT_BEFORE_DELTA = timedelta(seconds=0)
 
     LOGGING_LEVEL = logging.INFO
