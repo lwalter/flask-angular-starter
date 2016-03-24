@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <base href="/">
+
+    {% assets "css_bundle" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    {% assets "js_libs_bundle" %}
+        <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    {% assets "js_app_bundle" %}
+        <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="App">
+    <navbar></navbar>
+    <div ng-view ng-cloak layout="column"></div>
+</body>
+</html>

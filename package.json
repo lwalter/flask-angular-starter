@@ -1,0 +1,24 @@
+{
+  "name": "flask-angular-starter",
+  "version": "1.0.0",
+  "description": "Python3 Flask, Angular1.5 starter project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwalter/flask-angular-boilerplate.git"
+  },
+  "keywords": [
+    "flask",
+    "python3",
+    "angular",
+    "material"
+  ],
+  "author": "Luke Walter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwalter/flask-angular-boilerplate/issues"
+  },
+  "homepage": "https://github.com/lwalter/flask-angular-boilerplate#readme",
+  "dependencies": {
+    "bower": "^1.7.7"
+  }
+}

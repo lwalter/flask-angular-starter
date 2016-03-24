@@ -1,0 +1,29 @@
+{
+  "name": "flask-angular-starter",
+  "description": "Python3 Flask, Angular1.5 starter project",
+  "version": "1.0.0",
+  "moduleType": [],
+  "keywords": [
+    "flask",
+    "python3",
+    "angular"
+  ],
+  "authors": [
+    "Luke Walter"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-material": "^1.0.6",
+    "angular-route": "^1.5.0",
+    "angular-messages": "^1.5.0"
+  }
+}
