@@ -10,13 +10,13 @@ Framework/tool | Description
 [Flask-Jwt](https://pythonhosted.org/Flask-JWT/) | JSON Web Token library to handle stateless authentication. 
 [Flask-Bcrypt](https://flask-bcrypt.readthedocs.org/en/latest/) | Encryption library for generating password hashes, keep your users safe. 
 [Flask-Migrate](https://flask-migrate.readthedocs.org/en/latest/) | Library to handle SQLAlchemy database migrations.
-[Flask-Assets](https://flask-assets.readthedocs.org/en/latest/) | Build and minify your frontend assets.
-[Angular1.5](https://angularjs.org/) | Frontend framework for a rich, dynamic user interfaces.
+[Angular1.5](https://angularjs.org/) | Frontend framework for rich, dynamic user interfaces.
 [Angular-Material](https://material.angularjs.org/latest/) | Angular library implementing Material Design.
 [SQLite](https://www.sqlite.org/) | Store your data in a serverless database (should not be used for production).
 [Vagrant](https://www.vagrantup.com/) | Run and develop your application within a lightweight virtual environment.
 [NPM](https://www.npmjs.com/) | Manage Nodejs packages.
 [Bower](http://bower.io/) | Manage frontend packages.
+[Gulp](http://gulpjs.com/) | Manage your frontend builds.
 
 ## Setup
 * Download and install both [git](https://git-scm.com/downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
@@ -27,6 +27,7 @@ cd vagrant
 vagrant up
 vagrant ssh
 cd /app
+gulp build-app
 env/bin/python3.4 run.py
 ```
 * Open a browser and navigate to localhost:5000
@@ -37,8 +38,9 @@ env/bin/python3.4 run.py
 * A Python virtualenv will be created in the `/app` directory called `env`.
 * Python packages can be installed by running `/app/env/bin/pip install <package name>`.
 * Node packages can be installed by running `npm install <package name>`.
-* Bower packages can be installed by running `node_modules/bower/bin/bower install <package name>`.
+* Bower packages can be installed by running `bower install <package name>`.
 * After modifying any database entities, run `env/bin/python3.4 manage.py db migrate`. This will add a new migration entry to `migrations/versions`.
+* A Gulp watch task has been written to rebuild frontend assets after a change has been made. It also pipes the JS sources through JSHint to catch errors and warnings.
 
 ## Contributing
 * Issue tracking
