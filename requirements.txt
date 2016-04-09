@@ -3,7 +3,6 @@ aniso8601==1.1.0
 bcrypt==2.0.0
 cffi==1.5.2
 Flask==0.10.1
-Flask-Assets==0.11
 Flask-Bcrypt==0.7.1
 Flask-JWT==0.3.2
 Flask-Migrate==1.8.0
@@ -21,5 +20,4 @@ python-editor==0.5
 pytz==2016.2
 six==1.10.0
 SQLAlchemy==1.0.12
-webassets==0.11.1
 Werkzeug==0.11.5
