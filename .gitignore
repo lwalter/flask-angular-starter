@@ -6,3 +6,5 @@ node_modules
 *.vagrant
 *app.db
 *logs
+*log
+app/static/public

@@ -24,8 +24,10 @@ cd /app
 virtualenv -p /usr/bin/python3.4 env
 env/bin/pip install -U pip
 env/bin/pip install -r requirements.txt
+npm install -g gulp
+npm install -g bower
 npm install
-node_modules/bower/bin/bower install --allow-root
+bower install --allow-root
 
 # Migrate the db
 env/bin/python manage.py db upgrade

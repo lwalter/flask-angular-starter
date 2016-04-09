@@ -5,7 +5,6 @@ import logging
 
 class Config(object):
     DEBUG = False
-    ASSETS_DEBUG = False
 
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
@@ -22,7 +21,6 @@ class Config(object):
 class Development(Config):
     DEVELOPMENT = True
     DEBUG = True
-    ASSETS_DEBUG = True
     LOGGING_LEVEL = logging.DEBUG
 
 

@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <title>Untitled</title>
     <base href="/">
-
-    {% assets "css_bundle" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}">
-    {% endassets %}
-
-    {% assets "js_libs_bundle" %}
-        <script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
-    {% assets "js_app_bundle" %}
-        <script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+    <link rel="stylesheet" href="static/public/app-bundle-styles.css">
+    <link rel="stylesheet" href="static/public/libs-bundle-styles.css">
+    <script src="static/public/libs-bundle.js"></script>
+    <script src="static/public/app-bundle.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
