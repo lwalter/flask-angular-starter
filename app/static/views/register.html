@@ -2,40 +2,46 @@
     <div layout="row" layout-align="center">
         <h2>Create an account</h2>
     </div>
-    <form ng-submit="$ctrl.registerUser()">
+    <form name="$ctrl.userRegisterForm" ng-submit="$ctrl.registerUser()">
         <div layout="row" layout-align="center">
             <md-input-container flex-gt-sm="30" flex="100" class="md-block">
                 <label>First name</label>
-                <input name="firstName" type="text" ng-model="$ctrl.user.firstname" required>
-                <div ng-messages="userLoginForm.firstname.$error">
+                <input server-error name="firstname" type="text" ng-model="$ctrl.user.firstname" required>
+                <div ng-messages="$ctrl.userRegisterForm.firstname.$error">
                     <div ng-message="required">A first name is required.</div>
+                    <div ng-message="server">// $ctrl.userRegisterForm.firstname.serverError //</div>
                 </div>
             </md-input-container>
         </div>
         <div layout="row" layout-align="center">
             <md-input-container flex-gt-sm="30" flex="100" class="md-block">
                 <label>Last name</label>
-                <input name="lastName" type="text" ng-model="$ctrl.user.lastname" required>
-                <div ng-messages="userLoginForm.lastname.$error">
+                <input server-error name="lastname" type="text" ng-model="$ctrl.user.lastname" required>
+                <div ng-messages="$ctrl.userRegisterForm.lastname.$error">
                     <div ng-message="required">A last name is required.</div>
+                    <div ng-message="server">// $ctrl.userRegisterForm.lastname.serverError //</div>
                 </div>
             </md-input-container>
         </div>
         <div layout="row" layout-align="center">
             <md-input-container flex-gt-sm="30" flex="100" class="md-block">
                 <label>Email</label>
-                <input name="email" type="email" ng-model="$ctrl.user.email" required>
-                <div ng-messages="userLoginForm.email.$error">
+                <input server-error name="email" type="email" ng-model="$ctrl.user.email" required>
+                <div ng-messages="$ctrl.userRegisterForm.email.$error">
                     <div ng-message="required">An email address is required.</div>
+                    <div ng-message="email">Enter a valid email address.</div>
+                    <div ng-message="server">// $ctrl.userRegisterForm.email.serverError //</div>
                 </div>
             </md-input-container>
         </div>
         <div layout="row" layout-align="center">
             <md-input-container flex-gt-sm="30" flex="100" class="md-block">
                 <label>Password</label>
-                <input name="password" type="password" ng-model="$ctrl.user.password" required>
-                <div ng-messages="userLoginForm.password.$error">
+                <input server-error name="password" type="password" ng-model="$ctrl.user.password" required minlength="8">
+                <div ng-messages="$ctrl.userRegisterForm.password.$error">
                     <div ng-message="required">A password is required.</div>
+                    <div ng-message="minlength">Password must be at least 8 characters.</div>
+                    <div ng-message="server">// $ctrl.userRegisterForm.password.serverError //</div>
                 </div>
             </md-input-container>
         </div>

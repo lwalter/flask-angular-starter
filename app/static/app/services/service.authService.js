@@ -50,7 +50,7 @@
                 deferred.resolve();
             } else {
                 $location.path('/login');
-                ToastService.propagateWarningToast('You must be logged in to do that.')
+                ToastService.propagateWarningToast('You must be logged in to do that.');
             }
 
             return deferred.promise;

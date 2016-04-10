@@ -69,8 +69,10 @@
                         message = 'You must be logged in to do that.';
                     }
 
-                    var ToastService = $injector.get('ToastService');
-                    ToastService.propagateWarningToast(message);
+                    if (angular.isDefined(message)) {
+                        var ToastService = $injector.get('ToastService');
+                        ToastService.propagateWarningToast(message);
+                    }
 
                     return $q.reject(response);
                 }

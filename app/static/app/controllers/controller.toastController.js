@@ -8,7 +8,7 @@
 
         self.closeToast = function () {
             $mdToast.hide();
-        }
+        };
     }
 
     toastCtrl.$inject = deps;
