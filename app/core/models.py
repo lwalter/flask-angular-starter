@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask_jwt import current_identity
-from app import db
+from app.extensions import db
 
 
 class CreatedByMixin:

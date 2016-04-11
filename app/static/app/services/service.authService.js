@@ -72,6 +72,7 @@
             var userInfo = angular.fromJson($window.localStorage.getItem('user'));
             if (angular.isObject(userInfo) && angular.isDefined(userInfo.token)) {
                 $window.localStorage.removeItem('user');
+                $location.path('/');
             }
         }
     }

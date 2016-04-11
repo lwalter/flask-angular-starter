@@ -1,4 +1,4 @@
-from app import db, bcrypt
+from app.extensions import db, bcrypt
 from app.core.models import CreatedAtMixin, IdMixin, CRUDMixin
 
 
