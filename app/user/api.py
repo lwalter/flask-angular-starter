@@ -26,7 +26,7 @@ class UserApi(Resource):
             return {'message': {'email': 'Invalid email provided'}}, 400
 
         if password == '':
-            return {'password': 'Invalid password provided'}, 400
+            return {'message': {'password': 'Invalid password provided'}}, 400
         elif len(password) < 8:
             return {'message': {'password': 'Password must be at least 8 characters long'}}, 400
 
