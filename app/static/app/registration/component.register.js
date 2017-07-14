@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('App').component('register', {
-        templateUrl: 'static/views/register.html',
+        templateUrl: 'static/app/registration/register.html',
         controller: 'RegisterController'
     });
 })();
