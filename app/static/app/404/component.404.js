@@ -1,5 +1,7 @@
+import notFoundTemplate from "./404.html";
+
 export function NotFoundComponent() {
     return {
-        templateUrl: 'static/app/404/404.html'
+        template: notFoundTemplate
     }
 }

@@ -13,7 +13,7 @@ export class DataService {
             .then((response) => {
                 deferred.resolve(response.data);
             })
-            .catch((response) => {
+            .catch((error) => {
                 deferred.reject(error.data);
             });
 
@@ -27,7 +27,7 @@ export class DataService {
             .then((response) => {
                 deferred.resolve(response.data);
             })
-            .catch((response) => {
+            .catch((error) => {
                 deferred.reject(error.data);
             });
 
@@ -41,7 +41,7 @@ export class DataService {
             .then((response) => {
                 deferred.resolve(response.data);
             })
-            .catch((response) => {
+            .catch((error) => {
                 deferred.reject(error.data);
             });
 
@@ -55,7 +55,7 @@ export class DataService {
             .then((response) => {
                 deferred.resolve(response.data);
             })
-            .catch((response) => {
+            .catch((error) => {
                 deferred.reject(error.data);
             });
 

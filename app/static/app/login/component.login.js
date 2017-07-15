@@ -1,3 +1,5 @@
+import loginTemplate from './login.html';
+
 class LoginController {
     constructor($location, dataService, authService) {
         'ngInject';
@@ -23,7 +25,7 @@ class LoginController {
 
 export function LoginComponent() {
     return {
-        templateUrl: 'static/app/login/login.html',
+        template: loginTemplate,
         controller: LoginController,
         controllerAs: 'vm'
     }

@@ -1,3 +1,5 @@
+import homeTemplate from './home.html';
+
 class HomeController {
     constructor(dataService) {
         'ngInject';
@@ -12,7 +14,7 @@ class HomeController {
 
 export function HomeComponent() {
     return {
-        templateUrl: 'static/app/home/home.html',
+        template: homeTemplate,
         controller: HomeController,
         controllerAs: 'vm'
     }

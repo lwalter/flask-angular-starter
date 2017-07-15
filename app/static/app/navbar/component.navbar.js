@@ -1,3 +1,5 @@
+import navbarTemplate from './navbar.html';
+
 class NavbarController {
     constructor($location, authService) {
         'ngInject';
@@ -25,7 +27,7 @@ class NavbarController {
 
 export function NavbarComponent() {
     return {
-        templateUrl: 'static/app/navbar/navbar.html',
+        template: navbarTemplate,
         controller: NavbarController,
         controllerAs: 'vm'
     }

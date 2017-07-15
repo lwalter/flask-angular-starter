@@ -18,7 +18,7 @@ pip3 install cffi
 pip3 install virtualenv
 
 cd /app
-virtualenv -p /usr/bin/python3 env # doesnt exist?
+virtualenv -p /usr/bin/python3 env
 env/bin/pip3 install -U pip
 env/bin/pip3 install -r requirements.txt
 npm install

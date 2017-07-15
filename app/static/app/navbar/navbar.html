@@ -2,7 +2,9 @@
     <div class="md-toolbar-tools">
         <h2><a href="/"><span>App</span></a></h2>
         <md-menu>
-            <md-button ng-click="$mdOpenMenu($event)"><md-icon>person</md-icon></md-button>
+            <md-button ng-click="$mdOpenMenu($event)">
+                <md-icon>person</md-icon>
+            </md-button>
             <md-menu-content width="4">
                 <md-menu-item ng-if="vm.userLoggedIn() == false">
                     <md-button ng-click="vm.goLogin()">

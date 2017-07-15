@@ -1,4 +1,5 @@
 import './warning-toast.css';
+import warningToastTemplate from './warning-toast.html';
 
 class ToastController {
     constructor($mdToast, message) {
@@ -15,7 +16,7 @@ class ToastController {
 
 export function ToastComponent() {
     return {
-        templateUrl: 'static/app/toaster/warning-toast.html',
+        template: warningToastTemplate,
         controller: ToastController,
         controllerAs: 'vm'
     }
