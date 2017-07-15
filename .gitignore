@@ -8,3 +8,4 @@ node_modules
 *logs
 *log
 app/static/public
+dist

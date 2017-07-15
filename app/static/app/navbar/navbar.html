@@ -4,18 +4,18 @@
         <md-menu>
             <md-button ng-click="$mdOpenMenu($event)"><md-icon>person</md-icon></md-button>
             <md-menu-content width="4">
-                <md-menu-item ng-if="$ctrl.userLoggedIn() == false">
-                    <md-button ng-click="$ctrl.goLogin()">
+                <md-menu-item ng-if="vm.userLoggedIn() == false">
+                    <md-button ng-click="vm.goLogin()">
                         Login
                     </md-button>
                 </md-menu-item>
-                <md-menu-item ng-if="$ctrl.userLoggedIn() == false">
-                    <md-button ng-click="$ctrl.goRegister()">
+                <md-menu-item ng-if="vm.userLoggedIn() == false">
+                    <md-button ng-click="vm.goRegister()">
                         Register
                     </md-button>
                 </md-menu-item>
-                <md-menu-item ng-if="$ctrl.userLoggedIn() == true">
-                    <md-button ng-click="$ctrl.logout()">
+                <md-menu-item ng-if="vm.userLoggedIn() == true">
+                    <md-button ng-click="vm.logout()">
                         Logout
                     </md-button>
                 </md-menu-item>

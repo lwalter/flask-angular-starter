@@ -9,22 +9,19 @@ echo "export SECRET_KEY='$SECRET_KEY'" >> /home/vagrant/.profile
 echo "export DATABASE_URL='$DATABASE_URL'" >> /home/vagrant/.profile
 source /home/vagrant/.profile
 
-# Install aptitude packages, node
+# Install aptitude packages, node, pip, and dependencies
 apt-get -y update && apt-get -y upgrade
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-apt-get -y install python-dev python3-dev libffi-dev g++ sqlite git nodejs
+apt-get -y install python-dev python3-dev libffi-dev g++ sqlite git nodejs python3-pip
 
-# Install pip, bower, and dependencies
-curl -s https://bootstrap.pypa.io/get-pip.py --output get-pip.py
-python get-pip.py
-pip install cffi
-pip install virtualenv
+pip3 install cffi
+pip3 install virtualenv
 
 cd /app
-virtualenv -p /usr/bin/python3.4 env
-env/bin/pip install -U pip
-env/bin/pip install -r requirements.txt
+virtualenv -p /usr/bin/python3 env # doesnt exist?
+env/bin/pip3 install -U pip
+env/bin/pip3 install -r requirements.txt
 npm install
 
 # Migrate the db
-env/bin/python manage.py db upgrade
+env/bin/python3 manage.py db upgrade

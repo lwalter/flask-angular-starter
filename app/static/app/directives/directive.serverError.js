@@ -1,20 +1,15 @@
-(function () {
-    'use strict';
+export function ServerErrorDirective() {
+    'ngInject';
 
-    var deps = ['ErrorHelperService'];
-    function serverError(ErrorHelperService) {
-        return {
-            restrict: 'A',
-            require: '?ngModel',
-            link: link
-        };
-
-        function link(scope, element, attrs, ctrl) {
-            element.on('change', function () {
-                ErrorHelperService.clearInputControlError(ctrl, scope);
-            });
-        }
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        link: link
     }
 
-    angular.module('App').directive('serverError', serverError);
-})();
+    function link(scope, element, attrs, ctrl) {
+        element.on('change', function () {
+            errorHelperService.clearInputControlError(ctrl, scope);
+        });
+    }
+}

@@ -1,78 +1,66 @@
 import angular from 'angular';
+import { Routing } from './config/routeConfig.js';
+import { Interpolation } from './config/interpolation.js';
+import { AuthService } from './auth/service.auth.js';
+import { ToastService } from './toaster/service.toast.js';
+import { ToastComponent } from './toaster/component.toast.js';
+import { LandingComponent } from './landing/component.landing.js';
+import { LoginComponent } from './login/component.login.js';
+import { DataService } from './services/service.data.js';
+import { ErrorHelperService } from './services/service.errorHelper.js';
+import { RegisterComponent } from './registration/component.register.js';
+import { NotFoundComponent } from './404/component.404.js';
+import { NavbarComponent } from './navbar/component.navbar.js';
+import { HomeComponent } from './home/component.home.js';
+import { ServerErrorDirective } from './directives/directive.serverError.js';
 
 angular.module('App', ['ngRoute', 'ngMaterial', 'ngMessages'])
-.config(['$interpolateProvider', '$routeProvider', '$locationProvider', '$httpProvider', function ($interpolateProvider, $routeProvider, $locationProvider, $httpProvider) {
-// Change interpolation symbols to avoid conflicts with Jinja templating engine
-    $interpolateProvider.startSymbol('//');
-    $interpolateProvider.endSymbol('//');
+    .config(Routing)
+    .config(Interpolation)
+    .config(['$httpProvider', function ($httpProvider) {
+        'ngInject';
+        $httpProvider.interceptors.push(function ($window, $q, $location, $injector) {
+            return {
+                request: function (config) {
+                    config.headers = config.headers || {};
 
-    // Route authentication resolution method wrappers
-    function requiresLogin(AuthService) {
-        return AuthService.redirectIfNotAuthenticated();
-    }
+                    var AuthService = $injector.get('authService');
+                    AuthService.setAuthHeaders(config);
 
-    function skipIfLoggedIn(AuthService) {
-        return AuthService.skipIfAuthenticated();
-    }
+                    return config;
+                },
+                responseError: function (response) {
+                    var AuthService = $injector.get('authService');
+                    var message = response.data.description;
 
-    $routeProvider
-        .when('/', {
-            templateUrl: 'static/views/home.html'
-        })
-        .when('/register', {
-            template: '<register></register>',
-            resolve: {
-                'skipIfLoggedIn': skipIfLoggedIn
-            }
-        })
-        .when('/login', {
-            template: '<login></login>',
-            resolve: {
-                'skipIfLoggedIn': skipIfLoggedIn
-            }
-        })
-        .when('/protected', {
-            template: '<protected></protected>',
-            resolve: {
-                'requiresLogin': requiresLogin
-            }
-        })
-        .otherwise({
-            templateUrl: 'static/views/404.html'
+                    if (AuthService.isUserLoggedIn() && (response.status === 401 || response.status === 403)) {
+                        AuthService.clearLocalUser();
+                        $location.path('/login');
+                        message = 'You must be logged in to do that.';
+                    }
+
+                    if (angular.isDefined(message)) {
+                        var ToastService = $injector.get('toastService');
+                        ToastService.propagateWarningToast(message);
+                    }
+
+                    return $q.reject(response);
+                }
+            };
         });
-
-    $locationProvider.html5Mode(true);
-
-    $httpProvider.interceptors.push(function ($window, $q, $location, $injector) {
-        return {
-            request: function (config) {
-                config.headers = config.headers || {};
-
-                var AuthService = $injector.get('AuthService');
-                AuthService.setAuthHeaders(config);
-
-                return config;
-            },
-            responseError: function (response) {
-                var AuthService = $injector.get('AuthService');
-                var message = response.data.description;
-
-                if (AuthService.isUserLoggedIn() && (response.status === 401 || response.status === 403)) {
-                    AuthService.clearLocalUser();
-                    $location.path('/login');
-                    message = 'You must be logged in to do that.';
-                }
-
-                if (angular.isDefined(message)) {
-                    var ToastService = $injector.get('ToastService');
-                    ToastService.propagateWarningToast(message);
-                }
-
-                return $q.reject(response);
-            }
-        };
-    });
-}])
-.run(['ToastService', function (ToastService) {
-    ToastService.listenForWarningToast();
-}]);
+    }])
+    .service('authService', AuthService)
+    .service('toastService', ToastService)
+    .service('dataService', DataService)
+    .service('errorHelperService', ErrorHelperService)
+    .component('notFound', new NotFoundComponent())
+    .component('toast', new ToastComponent())
+    .component('landing', new LandingComponent())
+    .component('login', new LoginComponent())
+    .component('register', new RegisterComponent())
+    .component('navbar', new NavbarComponent())
+    .component('home', new HomeComponent())
+    .directive('serverError', ServerErrorDirective)
+    .run(['toastService', function (toastService) {
+        toastService.listenForWarningToast();
+    }]);

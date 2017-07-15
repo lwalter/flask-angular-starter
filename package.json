@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/lwalter/flask-angular-starter#readme",
   "scripts": {
-    "build": "./node_modules/.bin/webpack"
+    "build": "webpack",
+    "prod": "NODE_ENV=production webpack"
   },
   "dependencies": {
     "angular": "^1.5.0",
@@ -30,6 +31,10 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "ng-annotate-loader": "^0.6.1",
+    "style-loader": "^0.18.2",
     "webpack": "^3.2.0"
   }
 }
