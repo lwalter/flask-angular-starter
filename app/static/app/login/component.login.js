@@ -1,12 +1,12 @@
 import loginTemplate from './login.html';
 
 class LoginController {
-    constructor($location, dataService, authService) {
+    constructor($location, loginService, toastService) {
         'ngInject';
 
-        this.dataService = dataService;
         this.$location = $location;
-        this.authService = authService;
+        this.loginService = loginService;
+        this.toastService = toastService;
         this.user = {
             email: '',
             password: ''
@@ -14,11 +14,16 @@ class LoginController {
     }
 
     login() {
-        this.dataService.post('/auth', this.user)
+        if (!this.user || !this.user.email || !this.user.password) {
+            this.toastService.toast('Provide an email and password to login with');
+        }
+
+        this.loginService.login(this.user)
             .then((result) => {
-                var parsedToken = this.authService.parseToken(result.access_token);
-                this.authService.setLocalUser(result.access_token, parsedToken.firstname);
-                this.$location.path('/');
+                this.$location.path('/home');
+            })
+            .catch((err) => {
+                this.toastService.toast(err);
             });
     };
 }

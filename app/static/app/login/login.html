@@ -1,31 +1,32 @@
-<md-content layout-padding>
-    <div layout="row" layout-align="center">
-        <h2>Login</h2>
-    </div>
-    <form flex ng-submit="vm.login()">
-        <div layout="row" layout-align="center">
-            <md-input-container flex-gt-sm="30" flex="100" class="md-block">
-                <label>Email</label>
-                <input name="email" type="email" ng-model="vm.user.email" required>
-                <div ng-messages="userLoginForm.email.$error">
-                    <div ng-message="required">An email address is required.</div>
-                </div>
-            </md-input-container>
-        </div>
-        <div layout="row" layout-align="center">
-            <md-input-container flex-gt-sm="30" flex="100" class="md-block">
-                <label>Password</label>
-                <input name="password" type="password" ng-model="vm.user.password" required>
-                <div ng-messages="userLoginForm.password.$error">
-                    <div ng-message="required">A password is required.</div>
-                </div>
-            </md-input-container>
-        </div>
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised" type="submit">Login</md-button>
-        </div>
-        <div layout="row" layout-align="center">
-            <h5>Don't have an account? <a href="/register">Create an account here</a></h5>
-        </div>
-    </form>
+<md-content layout="column" layout-align="center center">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Login</span>
+                <span class="md-subhead">Don't have an account? <a href="/register">Create one here</a></span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <form name="loginForm" layout="column">
+                <md-input-container>
+                    <label>Email</label>
+                    <input name="email" type="email" ng-model="vm.user.email" required>
+                    <div ng-messages="loginForm.email.$error">
+                        <div ng-message="required">An email address is required</div>
+                        <div ng-message="email">Must be a valid email address</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input name="password" type="password" ng-model="vm.user.password" required>
+                    <div ng-messages="loginForm.password.$error">
+                        <div ng-message="required">A password is required</div>
+                    </div>
+                </md-input-container>
+            </form>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="vm.login()">Login</md-button>
+        </md-card-actions>
+    </md-card>
 </md-content>

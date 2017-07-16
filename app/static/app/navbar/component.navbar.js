@@ -8,17 +8,13 @@ class NavbarController {
         this.authService = authService;
     }
 
-    userLoggedIn() {
+    isUserLoggedIn() {
         return this.authService.isUserLoggedIn();
     };
 
-    goLogin() {
-        this.$location.path('/login');
-    };
-
-    goRegister() {
-        this.$location.path('/register');
-    };
+    navTo(url) {
+        this.$location.path(url);
+    }
 
     logout() {
         this.authService.logoutUser();

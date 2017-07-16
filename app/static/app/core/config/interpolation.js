@@ -1,4 +1,4 @@
-export function Interpolation($interpolateProvider) {
+export function interpolation($interpolateProvider) {
     'ngInject';
     
     // Change interpolation symbols to avoid conflicts with Jinja templating engine

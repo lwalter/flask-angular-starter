@@ -1,22 +1,23 @@
 import angular from 'angular';
-import { Routing } from './config/routeConfig.js';
-import { Interpolation } from './config/interpolation.js';
-import { AuthService } from './auth/service.auth.js';
-import { ToastService } from './toaster/service.toast.js';
-import { ToastComponent } from './toaster/component.toast.js';
-import { LandingComponent } from './landing/component.landing.js';
-import { LoginComponent } from './login/component.login.js';
-import { DataService } from './services/service.data.js';
-import { ErrorHelperService } from './services/service.errorHelper.js';
-import { RegisterComponent } from './registration/component.register.js';
-import { NotFoundComponent } from './404/component.404.js';
-import { NavbarComponent } from './navbar/component.navbar.js';
-import { HomeComponent } from './home/component.home.js';
-import { ServerErrorDirective } from './directives/directive.serverError.js';
 
-angular.module('App', ['ngRoute', 'ngMaterial', 'ngMessages'])
-    .config(Routing)
-    .config(Interpolation)
+import CoreModule from './core/module.core.js';
+import NavbarModule from './navbar/module.navbar.js';
+import LandingModule from './landing/module.landing.js';
+import LoginModule from './login/module.login.js';
+import RegisterModule from './registration/module.register.js';
+import HomeModule from './home/module.home.js';
+
+angular.module('App', [
+    'ngRoute', 
+    'ngMaterial', 
+    'ngMessages', 
+    CoreModule,
+    NavbarModule, 
+    LandingModule,
+    LoginModule,
+    RegisterModule,
+    HomeModule
+    ])
     .config(['$httpProvider', function ($httpProvider) {
         'ngInject';
         $httpProvider.interceptors.push(function ($window, $q, $location, $injector) {
@@ -48,19 +49,7 @@ angular.module('App', ['ngRoute', 'ngMaterial', 'ngMessages'])
                 }
             };
         });
-    }])
-    .service('authService', AuthService)
-    .service('toastService', ToastService)
-    .service('dataService', DataService)
-    .service('errorHelperService', ErrorHelperService)
-    .component('notFound', new NotFoundComponent())
-    .component('toast', new ToastComponent())
-    .component('landing', new LandingComponent())
-    .component('login', new LoginComponent())
-    .component('register', new RegisterComponent())
-    .component('navbar', new NavbarComponent())
-    .component('home', new HomeComponent())
-    .directive('serverError', ServerErrorDirective)
-    .run(['toastService', function (toastService) {
-        toastService.listenForWarningToast();
     }]);
+    // .run(['toastService', function (toastService) {
+    //     toastService.listenForWarningToast();
+    // }]);

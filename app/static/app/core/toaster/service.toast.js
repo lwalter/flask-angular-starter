@@ -1,7 +1,7 @@
 export class ToastService {
     constructor($mdToast, $rootScope) {
         'ngInject';
-        
+
         this.$mdToast = $mdToast;
         this.$rootScope = $rootScope;
     }
@@ -16,6 +16,14 @@ export class ToastService {
         this.$rootScope.$broadcast('httpError', {
             message: message
         });
+    }
+
+    toast(message) {
+        const toast = this.$mdToast.simple()
+            .textContent(message)
+            .position('top right');
+        
+        this.$mdToast.show(toast);
     }
 
     createWarningToast(message) {

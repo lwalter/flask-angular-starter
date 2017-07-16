@@ -1,22 +1,17 @@
-<md-toolbar ng-cloak>
-    <div class="md-toolbar-tools">
-        <h2><a href="/"><span>App</span></a></h2>
-        <md-menu>
-            <md-button ng-click="$mdOpenMenu($event)">
+<md-toolbar>
+    <div class="md-toolbar-tools" layout="row" flex="auto" layout-align="space-between">
+        <div layout="column" layout-align="center center">
+            <md-button ng-href='/'>App</md-button>
+        </div>
+        <div ng-if="!vm.isUserLoggedIn()" layout="column" layout-align="center center">
+            <md-button ng-click="vm.navTo('/login')">Login</md-button>
+        </div>
+        <md-menu ng-if="vm.isUserLoggedIn()">
+            <md-button ng-click="$mdMenu.open($event)">
                 <md-icon>person</md-icon>
             </md-button>
-            <md-menu-content width="4">
-                <md-menu-item ng-if="vm.userLoggedIn() == false">
-                    <md-button ng-click="vm.goLogin()">
-                        Login
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item ng-if="vm.userLoggedIn() == false">
-                    <md-button ng-click="vm.goRegister()">
-                        Register
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item ng-if="vm.userLoggedIn() == true">
+            <md-menu-content>
+                <md-menu-item>
                     <md-button ng-click="vm.logout()">
                         Logout
                     </md-button>

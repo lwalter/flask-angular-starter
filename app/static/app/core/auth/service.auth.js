@@ -10,22 +10,9 @@ export class AuthService {
         this.toastService = toastService;
     }
 
-    parseToken(token) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(this.$window.atob(base64));
-    }
-
     isUserLoggedIn() {
         var userInfo = angular.fromJson(this.$window.localStorage.getItem('user'));
         return (angular.isObject(userInfo) && angular.isDefined(userInfo.token));
-    }
-
-    setLocalUser(token, firstname) {
-        this.$window.localStorage.setItem('user', angular.toJson({
-            token: token,
-            firstname: firstname
-        }));
     }
 
     setAuthHeaders(config) {

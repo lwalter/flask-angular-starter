@@ -1,13 +1,12 @@
 import registerTemplate from './register.html';
 
 class RegisterController {
-    constructor($location, dataService, errorHelperService) {
+    constructor($location, registerService, toastService) {
         'ngInject';
 
         this.$location = $location;
-        this.dataService = dataService;
-        this.errorHelperService = errorHelperService;
-
+        this.registerService = registerService;
+        this.toastService = toastService;
         this.user = {
             firstname: '',
             lastname: '',
@@ -17,12 +16,22 @@ class RegisterController {
     }
     
     registerUser() {
-        this.dataService.post('/api/user/register', this.user)
+        if (!this.user 
+            || !this.user.firstname 
+            || !this.user.lastname
+            || !this.user.email
+            || !this.user.password) {
+            
+            this.toastService.toast('Provide all user information to register');
+        }
+
+        this.registerService.registerUser(this.user)
             .then((data) => {
-                this.$location.path('/');
+                this.toastService.toast('Successfully registered');
+                this.$location.path('/login');
             })
-            .catch((error) => {
-                this.errorHelperService.displayInputControlError(error.message, this.userRegisterForm);
+            .catch((err) => {
+                this.toastService.toast(err);
             });
     };
 }

@@ -1,14 +1,11 @@
 import homeTemplate from './home.html';
 
 class HomeController {
-    constructor(dataService) {
+    constructor(homeService) {
         'ngInject';
         
-        this.dataService = dataService;
-        this.dataService.get('/api/protected')
-            .then((result) => {
-                console.log(result);
-            });
+        this.homeService = homeService;
+        this.homeService.getData();
     }
 }
 
