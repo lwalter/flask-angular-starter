@@ -21,7 +21,7 @@ export class RegisterService {
                 if (!result || result.status !== 201) {
                     deferred.reject('We can\'t register you at this time');
                 }
-                
+
                 deferred.resolve(result.data);
             })
             .catch((err) => {

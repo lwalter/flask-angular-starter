@@ -8,7 +8,7 @@ class TestApi(Resource):
     decorators = [jwt_required()]
 
     def get(self):
-        return {}, 200
+        return {"message": "Hello world!"}, 200
 
     def put(self):
         return {}, 200

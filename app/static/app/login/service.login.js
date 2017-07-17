@@ -1,27 +1,16 @@
+import angular from 'angular';
+
 export class LoginService {
 
-    constructor($q, $http, $window) {
+    constructor($q, $http, $window, authService) {
         'ngInject';
 
         this.$q = $q;
         this.$http = $http;
         this.$window = $window;
+        this.authService = authService;
 
-        this.userKey = 'user';
         this.loginRoute = '/auth';
-    }
-
-    parseToken(token) {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace('-', '+').replace('_', '/');
-        return angular.fromJson(this.$window.atob(base64)); // TODO(lnw): double check this parsing function works
-    }
-
-    setLocalUser(token, firstname) {
-        this.$window.localStorage.setItem(this.userKey, angular.toJson({
-            token: token,
-            firstname: firstname
-        }));
     }
 
     login(user) {
@@ -37,11 +26,10 @@ export class LoginService {
 
                 }
 
-                const parsedToken = this.parseToken(result.access_token);
-                this.setLocalUser(result.access_token, parsedToken.firstname);
+                const parsedToken = this.authService.parseToken(result.data.access_token);
+                this.authService.setLocalUser(result.data.access_token, parsedToken.firstname);
 
-                // TODO(lnw) should this return the full parsed user?
-                deferred.resolve(parsedToken);
+                deferred.resolve(parsedToken.firstname);
             })
             .catch((err) => {
                 let errorMessage = 'We can\'t log you in at this time';

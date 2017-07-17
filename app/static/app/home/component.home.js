@@ -1,11 +1,20 @@
 import homeTemplate from './home.html';
 
 class HomeController {
-    constructor(homeService) {
+    constructor(homeService, toastService) {
         'ngInject';
         
         this.homeService = homeService;
-        this.homeService.getData();
+        this.toastService = toastService;
+        this.message = '';
+
+        this.homeService.getData()
+            .then((data) => {
+                this.message = data.message
+            })
+            .catch((err) => {
+                this.toastService.toast(err);
+            });
     }
 }
 

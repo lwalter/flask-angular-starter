@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 import { LandingComponent } from './component.landing.js';
 import { landingRoutingConfig } from './route.config.js';
 

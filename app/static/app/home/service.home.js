@@ -9,6 +9,16 @@ export class HomeService {
     }
 
     getData() {
-        
+        const deferred = this.$q.defer();
+
+        this.$http.get(this.apiUri)
+            .then((res) => {
+                deferred.resolve(res.data);
+            })
+            .catch((err) => {
+                deferred.reject('No data could be retrieved');
+            });
+
+            return deferred.promise;
     }
 }
