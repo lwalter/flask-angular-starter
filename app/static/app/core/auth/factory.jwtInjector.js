@@ -1,4 +1,4 @@
-export function jwtInjectorFactory($injector, $location) {
+export function jwtInjectorFactory($injector, $location, $q) {
     'ngInject';
 
     const injector = {

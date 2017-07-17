@@ -6,8 +6,8 @@
                 <span class="md-subhead">Have an account? <a href="/login">Login here</a></span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content>
-            <form name="registerForm" layout="column">
+        <form name="registerForm" ng-submit="vm.registerUser()">
+            <md-card-content layout="column">
                 <md-input-container>
                     <label>First name</label>
                     <input name="firstname" type="text" ng-model="vm.user.firstname" required>
@@ -38,10 +38,10 @@
                         <div ng-message="minlength">Password must be at least 8 characters</div>
                     </div>
                 </md-input-container>
-            </form>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-raised md-primary" ng-disabled="registerForm.$invalid" ng-click="vm.registerUser()">Register</md-button>
-        </md-card-actions>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary" ng-disabled="registerForm.$invalid" type="submit">Register</md-button>
+            </md-card-actions>
+        </form>
     </md-card>
 </md-content>

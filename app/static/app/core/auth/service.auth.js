@@ -44,7 +44,7 @@ export class AuthService {
     }
 
     clearLocalUser() {
-        $window.localStorage.removeItem(this.userKey);
+        this.$window.localStorage.removeItem(this.userKey);
     }
 
     parseToken(token) {
