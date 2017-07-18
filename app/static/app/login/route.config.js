@@ -1,7 +1,7 @@
 export function loginRoutingConfig($routeProvider) {
-    'ngInject';
+  'ngInject';
 
-    $routeProvider.when('/login', { 
-        template: '<login flex="auto"></login>'
-    });
+  $routeProvider.when('/login', {
+    template: '<login flex="auto"></login>'
+  });
 }

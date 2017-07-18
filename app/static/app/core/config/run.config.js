@@ -1,9 +1,9 @@
 export function applicationRunConfig($rootScope, $location) {
-    'ngInject';
+  'ngInject';
 
-    $rootScope.$on('$routeChangeError', (e, curr, prev, rejection) => {
-        if (rejection === 'REQUIRES-LOGIN') {
-            $location.path('/login')
-        }
-    })
+  $rootScope.$on('$routeChangeError', (e, curr, prev, rejection) => {
+    if (rejection === 'REQUIRES-LOGIN') {
+      $location.path('/login');
+    }
+  });
 }

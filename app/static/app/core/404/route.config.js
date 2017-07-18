@@ -1,7 +1,7 @@
 export function notFoundRoutingConfig($routeProvider) {
-    'ngInject';
+  'ngInject';
 
-    $routeProvider.when('/404', { 
-        template: '<not-found flex="auto"></not-found>'
-    });
+  $routeProvider.when('/404', {
+    template: '<not-found flex="auto"></not-found>'
+  });
 }

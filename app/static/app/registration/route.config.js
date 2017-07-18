@@ -1,7 +1,7 @@
 export function registerRoutingConfig($routeProvider) {
-    'ngInject';
+  'ngInject';
 
-    $routeProvider.when('/register', { 
-        template: '<register flex="auto"></register>'
-    });
+  $routeProvider.when('/register', {
+    template: '<register flex="auto"></register>'
+  });
 }

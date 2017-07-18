@@ -8,13 +8,13 @@ import RegisterModule from './registration/module.register.js';
 import HomeModule from './home/module.home.js';
 
 angular.module('App', [
-    'ngRoute', 
-    'ngMaterial', 
-    'ngMessages', 
-    CoreModule,
-    NavbarModule, 
-    LandingModule,
-    LoginModule,
-    RegisterModule,
-    HomeModule
-    ]);
+  'ngRoute',
+  'ngMaterial',
+  'ngMessages',
+  CoreModule,
+  NavbarModule,
+  LandingModule,
+  LoginModule,
+  RegisterModule,
+  HomeModule
+]);

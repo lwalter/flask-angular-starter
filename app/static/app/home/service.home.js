@@ -1,24 +1,24 @@
 export class HomeService {
-    constructor($http, $q) {
-        'ngInject';
-        
-        this.$http = $http;
-        this.$q = $q;
+  constructor($http, $q) {
+    'ngInject';
 
-        this.apiUri = '/api/protected';
-    }
+    this.$http = $http;
+    this.$q = $q;
 
-    getData() {
-        const deferred = this.$q.defer();
+    this.apiUri = '/api/protected';
+  }
 
-        this.$http.get(this.apiUri)
-            .then((res) => {
-                deferred.resolve(res.data);
-            })
-            .catch((err) => {
-                deferred.reject('No data could be retrieved');
-            });
+  getData() {
+    const deferred = this.$q.defer();
 
-            return deferred.promise;
-    }
+    this.$http.get(this.apiUri)
+      .then((res) => {
+        deferred.resolve(res.data);
+      })
+      .catch(() => {
+        deferred.reject('No data could be retrieved');
+      });
+
+    return deferred.promise;
+  }
 }

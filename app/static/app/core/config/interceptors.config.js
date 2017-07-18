@@ -1,5 +1,5 @@
 export function interceptorsConfig($httpProvider) {
-    'ngInject';
+  'ngInject';
 
-    $httpProvider.interceptors.push('jwtInjector');
+  $httpProvider.interceptors.push('jwtInjector');
 }

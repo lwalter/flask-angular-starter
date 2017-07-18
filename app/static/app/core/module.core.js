@@ -10,13 +10,13 @@ import { jwtInjectorFactory } from './auth/factory.jwtInjector.js';
 import { interceptorsConfig } from './config/interceptors.config.js';
 
 const module = angular.module('App.core', [])
-    .config(notFoundRoutingConfig)
-    .config(coreRoutingConfig)
-    .config(interceptorsConfig)
-    .run(applicationRunConfig)
-    .service('authService', AuthService)
-    .service('toastService', ToastService)
-    .factory('jwtInjector', jwtInjectorFactory)
-    .component('notFound', new NotFoundComponent());
+  .config(notFoundRoutingConfig)
+  .config(coreRoutingConfig)
+  .config(interceptorsConfig)
+  .run(applicationRunConfig)
+  .service('authService', AuthService)
+  .service('toastService', ToastService)
+  .factory('jwtInjector', jwtInjectorFactory)
+  .component('notFound', new NotFoundComponent());
 
 export default module.name;

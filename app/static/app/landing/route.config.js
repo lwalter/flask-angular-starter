@@ -1,7 +1,7 @@
 export function landingRoutingConfig($routeProvider) {
-    'ngInject';
+  'ngInject';
 
-    $routeProvider.when('/', { 
-        template: '<landing flex="auto"></landing>'
-    });
+  $routeProvider.when('/', {
+    template: '<landing flex="auto"></landing>'
+  });
 }
