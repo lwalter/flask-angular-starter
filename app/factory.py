@@ -5,6 +5,7 @@ from app.extensions import db, api, bcrypt, jwt
 
 
 def create_app(config=None):
+    
     app = Flask(__name__)
 
     if config:
